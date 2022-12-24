@@ -1,0 +1,292 @@
+/* @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Poppins&display=swap'); */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #fffdd0; */
+    background-color: #bad7e9;
+    /* background-color: #000; */
+}
+
+/* ----- SNOW EFFECT ----- */
+
+header {
+    /* min-height: 100vh; */
+    width: 100%;
+    height: 100%;
+    background: url(../images/snow.png) no-repeat center;
+    background-size: cover;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.headerActive {
+    display: block;
+}
+
+header .snow1, .snow2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/snow.png);
+    background-position: 0 0;
+}
+
+header .snow1 {
+    background-size: 70em;
+    animation: snowfall 30s linear infinite;
+}
+
+header .snow2 {
+    background-size: 50em;
+    animation: snowfall2 30s linear infinite;
+    opacity: 0.5;
+    filter: blur(10px);
+}
+
+@keyframes snowfall {
+    100% {
+        background-position: 70em 70em;
+    }
+}
+
+@keyframes snowfall2 {
+    100% {
+        background-position: 50em 70em;
+    }
+}
+
+/* ----------------------- */
+
+#on {
+    display: none;
+}
+
+.card-cover {
+    position: relative;
+    width: 200px;
+    width: auto;
+    transform-style: preserve-3d;
+    transform: perspective(2500px);
+    transition: 0.1s;
+}
+
+.card-cover .front-side {
+    position: relative;
+    background-color: #fff;
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+    transform-origin: left;
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .1), 30px 0 50px rgba(0, 0, 0, .1);
+    transition: 0.1s;
+}
+
+.front-side::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 280px;
+    top: 10px;
+    left: 10px;
+}
+
+.front-side .christmas-tree {
+    position: absolute;
+    width: 180px;
+    height: 280px;
+    background-color: #c94038;
+    top: 10px;
+    left: 10px;
+}
+
+.front-side .christmas-tree .tree {
+    width: 80%;
+    margin-top: 30px;
+    margin-left: 18px;
+}
+
+.front-side .christmas-tree .merrychristmas {
+    font-family: freestyle script, sans-serif;
+    color: #fff;
+    font-size: 16px;
+    position: absolute;
+    top: 198px;
+    left: 54px;
+}
+
+.front-side .christmas-tree .banner {
+    width: 75%;
+    margin-top: -20px;
+    margin-left: 22.5px;
+}
+
+.card-cover .inside {
+    position: absolute;
+    background-color: #fff;
+    width: 200px;
+    height: 300px;
+    z-index: -999;
+    top: 0;
+    left: 0;
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .2);
+}
+
+.inside::before {
+    position: absolute;
+    content: "";
+    width: 180px;
+    height: 280px;
+    background-color: #c94038;
+    top: 10px;
+    left: 10px;
+}
+
+.on {
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    top: 0;
+    background-color: transparent;
+    z-index: 6;
+    cursor: pointer;
+}
+
+#on:checked ~ .front-side {
+    transform: rotateY(-150deg);
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .1), 30px 0 50px rgba(0, 0, 0, .1);
+}
+
+#on:checked ~ .front-side::before {
+    z-index: 5;
+    background-color: #c94038;
+    /* #c94038 */
+}
+
+.front-side .christmas-tree .text {
+    position: absolute;
+    color: #fff;
+    font-family: freestyle script, sans-serif;
+    top: 250px;
+    width: 180px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.inside .title {
+    position: absolute;
+    color: #fff;
+    font-family: freestyle script, sans-serif;
+    font-size: 40px;
+    text-align: center;
+    top: 24px;
+    width: 200px;
+}
+
+.inside .wishes {
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    color: #fff;
+    font-family: freestyle script, sans-serif;
+    line-height: 20px;
+    font-size: 15px;
+    height: 300px;
+    top: 130px;
+}
+
+.inside .gift {
+    width: 200px;
+    height: 300px;
+    position: absolute;
+}
+
+.inside .gift .box {
+    position: absolute;
+    top: 220px;
+    left: 72px;
+    width: 50px;
+}
+
+/* ----- RESPONSIVE ----- */
+@media screen and (max-width: 768px) {
+    #on:checked ~ .front-side {
+        transform: rotateX(-115deg);
+        box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .1), 30px 0 50px rgba(0, 0, 0, .1);
+    }
+    
+    #on:checked ~ .front-side::before {
+        z-index: 5;
+        background-color: #c94038;
+    }
+
+    .inside .gift {
+        width: 200px;
+        height: 300px;
+        position: absolute;
+    }
+    
+    .inside .gift .box {
+        position: absolute;
+        top: 220px;
+        left: 72px;
+        width: 50px;
+    }
+    
+    .welcome {
+        text-align: center;
+    }
+
+    .card-cover .front-side {
+        transform-origin: bottom;
+    }
+}
+
+.welcome {
+    font-family: freestyle script, sans-serif;
+    color: #fff;
+    font-weight: 100;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    opacity: 1;
+    cursor: pointer;
+}
+
+.active {
+    visibility: hidden;
+}
+
+.inside .wishtext {
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    color: #fff;
+    font-family: freestyle script, sans-serif;
+    line-height: 20px;
+    font-size: 15px;
+    height: 300px;
+    top: 130px;
+}
