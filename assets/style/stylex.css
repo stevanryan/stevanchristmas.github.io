@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Poppins&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Poppins&display=swap');
 
 * {
     margin: 0;
@@ -15,16 +15,16 @@ body {
     align-items: center;
     /* background-color: #fffdd0; */
     background-color: #bad7e9;
-    /* background-color: #000; */
+    /* background-color: #30475E; */
 }
 
 /* ----- SNOW EFFECT ----- */
 
-header {
+.snowy-background {
     /* min-height: 100vh; */
     width: 100%;
     height: 100%;
-    background: url(../images/snow.png) no-repeat center;
+    background: url(../images/night-ge6499cae9_1920.jpg) no-repeat center;
     background-size: cover;
     position: absolute;
     display: flex;
@@ -33,11 +33,11 @@ header {
     display: none;
 }
 
-.headerActive {
+.snowyActive {
     display: block;
 }
 
-header .snow1, .snow2 {
+.snow1 {
     position: absolute;
     top: 0;
     left: 0;
@@ -47,16 +47,9 @@ header .snow1, .snow2 {
     background-position: 0 0;
 }
 
-header .snow1 {
-    background-size: 70em;
+.snow1 {
+    background-size: 1000px;
     animation: snowfall 30s linear infinite;
-}
-
-header .snow2 {
-    background-size: 50em;
-    animation: snowfall2 30s linear infinite;
-    opacity: 0.5;
-    filter: blur(10px);
 }
 
 @keyframes snowfall {
@@ -65,11 +58,27 @@ header .snow2 {
     }
 }
 
-@keyframes snowfall2 {
+.snow2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/snow.png);
+    background-position: 0 0;
+}
+
+.snow2 {
+    background-size: 800px;
+    animation: snowfalls 30s linear infinite;
+}
+
+@keyframes snowfalls {
     100% {
-        background-position: 50em 70em;
+        background-position: 40em 10em;
     }
 }
+
 
 /* ----------------------- */
 
@@ -84,6 +93,7 @@ header .snow2 {
     transform-style: preserve-3d;
     transform: perspective(2500px);
     transition: 0.1s;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, .3);
 }
 
 .card-cover .front-side {
@@ -122,12 +132,12 @@ header .snow2 {
 }
 
 .front-side .christmas-tree .merrychristmas {
-    font-family: freestyle script, sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #fff;
-    font-size: 16px;
+    font-size: 10px;
     position: absolute;
-    top: 198px;
-    left: 54px;
+    top: 200px;
+    left: 48px;
 }
 
 .front-side .christmas-tree .banner {
@@ -181,18 +191,18 @@ header .snow2 {
 .front-side .christmas-tree .text {
     position: absolute;
     color: #fff;
-    font-family: freestyle script, sans-serif;
+    font-family: 'Poppins', sans-serif;
     top: 250px;
     width: 180px;
     text-align: center;
-    font-size: 14px;
+    font-size: 10px;
 }
 
 .inside .title {
     position: absolute;
     color: #fff;
-    font-family: freestyle script, sans-serif;
-    font-size: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
     text-align: center;
     top: 24px;
     width: 200px;
@@ -203,7 +213,7 @@ header .snow2 {
     width: 200px;
     text-align: center;
     color: #fff;
-    font-family: freestyle script, sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 20px;
     font-size: 15px;
     height: 300px;
@@ -221,6 +231,18 @@ header .snow2 {
     top: 220px;
     left: 72px;
     width: 50px;
+}
+
+.inside .wishtext {
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    line-height: 20px;
+    font-size: 10px;
+    height: 300px;
+    top: 110px;
 }
 
 /* ----- RESPONSIVE ----- */
@@ -258,7 +280,7 @@ header .snow2 {
 }
 
 .welcome {
-    font-family: freestyle script, sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #fff;
     font-weight: 100;
     font-size: 50px;
@@ -279,14 +301,3 @@ header .snow2 {
     visibility: hidden;
 }
 
-.inside .wishtext {
-    position: absolute;
-    width: 200px;
-    text-align: center;
-    color: #fff;
-    font-family: freestyle script, sans-serif;
-    line-height: 20px;
-    font-size: 15px;
-    height: 300px;
-    top: 130px;
-}
